@@ -188,7 +188,7 @@ bool My_browser::initMoreToolMenu(QMenu* parent)
 		ret = ret && makeAction(action, menu, "clear all cookie", 0);
 		if (ret)
 		{
-			connect(action, SIGNAL(triggered(bool)),m_currenttab,SLOT(clearCookie()));
+            connect(action, SIGNAL(triggered(bool)),m_currenttab,SLOT(clearCookie(bool)));
 			menu->addAction(action);
 		}
 	}
@@ -310,7 +310,6 @@ bool My_browser::makeAction(QAction*& action, QWidget* parent, QString text, int
 	return ret;
 }
 //这里很重要，因为webview显示的网页默认大小，必须在这里让网页大小和窗口大小一致，不然会出bug
-inline
 void My_browser::resizeEvent(QResizeEvent* event)
 {
 	 m_currenttab->currentWidget()->resize(this->centralWidget()->size());

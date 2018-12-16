@@ -39,7 +39,7 @@ private:
 	webTabWidget* m_currenttab;
 	/*method*/
 	My_browser(QWidget* parent = nullptr);
-	inline void resizeEvent(QResizeEvent* event);
+    void resizeEvent(QResizeEvent* event);
 
 	bool constrcut();
 

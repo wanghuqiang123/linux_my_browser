@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta  charset="utf-8">
-	<script type="text/javascript" 
-     src="qrc:///qtwebchannel/qwebchannel.js"></script>
-	<script type="text/javascript">
-		var mainwindow;
-		window.onload = function()
-		{
-			new QWebChannel(Qt.webChannelTransport,function(channel)
-			{
-				mainwindow = channel.objects.web;
-			});
-		}
-		myFunction()
-		{
-		 	mainwindow.doSomething();	
-		}
-	</script>
-</head>
+    <head>
+        <title>Page Title</title>
+        <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
+        <script>
+            var mainwindow;
+            window.onload = function()
+            {
+                new QWebChannel(qt.webChannelTransport, function(channel)
+                {
+                    mainwindow = channel.objects.webTabWidget;
+                });
+            }
 
-<body>
-	<button onclick="myFunction()">点击这里</button>
-</body>
+            function myFunction()
+            {
+                document.getElementById("myText").innerHTML = "Something happened!";
+                mainwindow.doSomething();
+            }
+        </script>
+    </head>
+    <body>
+        <p id="myText">Hello World!</p>
+        <button onclick="myFunction()">Do Something</button>
+    </body>
 </html>

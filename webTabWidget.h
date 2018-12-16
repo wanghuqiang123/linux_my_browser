@@ -27,7 +27,7 @@ public:
 	WebView* current_widget();
 
 	Q_INVOKABLE void doSomething();
-	void test(QWebEnginePage*);
+    void test(QWebEnginePage*);
 
 	virtual ~webTabWidget();
 signals:

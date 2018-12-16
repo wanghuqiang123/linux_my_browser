@@ -1,5 +1,5 @@
 #include "webTabWidget.h"
-
+#include <QWebEngineScript>
 webTabWidget::webTabWidget(QWidget* parent):QTabWidget(parent)
 {
     initTabWidget();
@@ -59,7 +59,6 @@ bool webTabWidget::setup_webview(WebView* webview)
         if (ok) {
         int index = m_webview.indexOf(webview);//现在的webview在容器的哪个位置；对应的下标
         setTabText(index, webview->title());//set currentWidgetTab webview title
-        //test(webview->page());//测试用
         }
     });
     connect(webview, &QWebEngineView::loadStarted, [this]() {
@@ -70,6 +69,7 @@ bool webTabWidget::setup_webview(WebView* webview)
             , webview->page()->history()->currentItem().url());
     });
     setWebPage(webview);			//设置网页的配置文件，cookie等,显示初始网页面等
+    test(webview->page());//测试用
     return ret;
 }
 WebView* webTabWidget::current_widget()
@@ -148,7 +148,7 @@ void webTabWidget::sentCurrentUrl(int index)
 void webTabWidget::test(QWebEnginePage* page)
 {
     QWebChannel* channel = new QWebChannel(this);
-    channel->registerObject(QStringLiteral("web"), this);
+    channel->registerObject(QStringLiteral("webTabWidget"), this);
     page->setWebChannel(channel);
 }
 void webTabWidget::doSomething()

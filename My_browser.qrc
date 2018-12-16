@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/My_browser">
+        <file>Icon/go-bottom.png</file>
+        <file>Icon/go-next.png</file>
+        <file>Icon/go-previous.png</file>
+        <file>Icon/view-refresh.png</file>
+        <file>Icon/loading.gif</file>
+        <file>Icon/AppLogoColor.png</file>
+        <file>Html.html</file>
+    </qresource>
+</RCC>

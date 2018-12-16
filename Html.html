@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
     <head>
         <title>Page Title</title>
         <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
@@ -24,4 +25,31 @@
         <p id="myText">Hello World!</p>
         <button onclick="myFunction()">Do Something</button>
     </body>
+=======
+<head>
+        <meta  charset="utf-8">
+</head>
+
+<body>
+        <script type = "text/javascript" src="qrc:///qtwebchannel/qwebchannel.js">
+          window.onload = function()
+          {
+                  new QWebChannel(Qt.webChannelTransport,function(channel)
+                  {
+                          window.mainwindow = channel.objects.web;
+                  });
+          }
+            function myFunction()
+            {
+                document.getElementById("1").innerHTML =
+                "Something happened!";
+                 window.mainwindow.doSomething();
+            }
+        </script>
+        <p id = "1">
+            hello
+        </p>
+        <button onclick = "myFunction()">test</button>
+</body>
+>>>>>>> a5135bfa27d37f8617b612852e9b1daf051020e7
 </html>

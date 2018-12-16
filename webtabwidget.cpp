@@ -58,7 +58,12 @@ bool webTabWidget::setup_webview(WebView* webview)
     connect(webview, &QWebEngineView::loadFinished, [this,webview](bool ok){
         if (ok) {
         int index = m_webview.indexOf(webview);//现在的webview在容器的哪个位置；对应的下标
+<<<<<<< HEAD
         setTabText(index, webview->title());//set currentWidgetTab webview title
+=======
+        setTabText(index, webview->page()->title());//set currentWidgetTab webview title
+        //test(webview->page());//测试用
+>>>>>>> a5135bfa27d37f8617b612852e9b1daf051020e7
         }
     });
     connect(webview, &QWebEngineView::loadStarted, [this]() {
